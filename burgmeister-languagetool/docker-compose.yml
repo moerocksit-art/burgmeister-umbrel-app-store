@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: burgmeister-languagetool_server_1
+      APP_PORT: 8010
+
+  server:
+    image: erikvl87/languagetool:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      Java_Xms: 512m
+      Java_Xmx: 2g
